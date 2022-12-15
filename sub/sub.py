@@ -3,12 +3,12 @@ import random
 import time
 import serial
 
-ser = serial.Serial("COM4", timeout=1)
+ser = serial.Serial("COM3", timeout=1)
 
 def on_message(client, user_data, message):
     data = message.payload.decode("utf-8")
-    print(data)
     ser.write(data.encode())
+
 
 
 broker = "broker.emqx.io"
@@ -24,7 +24,7 @@ except Exception:
 
 client.loop_start()
 print("Subscribing")
-client.subscribe("lab/dungeon/+")
+client.subscribe("lab/donAndBass")
 time.sleep(600)
 client.disconnect()
 client.loop_stop()
