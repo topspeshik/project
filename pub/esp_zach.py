@@ -27,7 +27,6 @@ while True:
         else:
           client.publish("lab/donAndBass", "0")
       else:
-        print("hui")
         if (number < 20):
           client.publish("lab/donAndBass", "1")
         else:
