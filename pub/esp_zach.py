@@ -23,14 +23,14 @@ while True:
         if (maxBright < number):
             maxBright = number
         if (number < maxBright / 2):
-          client.publish("lab/donAndBass", "1")
+          client.publish("lab/donAndBass/bright", "1")
         else:
-          client.publish("lab/donAndBass", "0")
+          client.publish("lab/donAndBass/bright", "0")
       else:
         if (number < 20):
-          client.publish("lab/donAndBass", "1")
+          client.publish("lab/donAndBass/sonic", "1")
         else:
-          client.publish("lab/donAndBass", "0")
+          client.publish("lab/donAndBass/sonic", "0")
 
 
     
