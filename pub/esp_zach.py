@@ -19,18 +19,21 @@ while True:
       data = ser.readline()
       state = chr(data[0])
       number = int(str(data[1:])[:-5][2:])
+      
       if (state == 'B'):
-        if (maxBright < number):
-            maxBright = number
-        if (number < maxBright / 2):
-          client.publish("lab/donAndBass/bright", "1")
-        else:
-          client.publish("lab/donAndBass/bright", "0")
+        client.publish("lab/donAndBass/bright", number)
+#         if (maxBright < number):
+#             maxBright = number
+#         if (number < maxBright / 2):
+#           client.publish("lab/donAndBass/bright", "1")
+#         else:
+#           client.publish("lab/donAndBass/bright", "0")
       else:
-        if (number < 20):
-          client.publish("lab/donAndBass/sonic", "1")
-        else:
-          client.publish("lab/donAndBass/sonic", "0")
+       client.publish("lab/donAndBass/sonic", number)
+#         if (number < 20):
+#           client.publish("lab/donAndBass/sonic", "1")
+#         else:
+#           client.publish("lab/donAndBass/sonic", "0")
 
 
     
