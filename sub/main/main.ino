@@ -34,16 +34,16 @@ void loop() {
   server.handleClient();
 
   if (state){
-    // Clears the trigPin condition
+
     digitalWrite(TRIG_PIN, LOW);
     delayMicroseconds(2);
-    // Sets the trigPin HIGH (ACTIVE) for 10 microseconds
+
     digitalWrite(TRIG_PIN, HIGH);
     delayMicroseconds(10);
     digitalWrite(TRIG_PIN, LOW);
-    // Reads the echoPin, returns the sound wave travel time in microseconds
+
     duration = pulseIn(ECHO_PIN, HIGH);
-    // Calculating the distance
+
     distance = duration * 0.034 / 2; // Speed 
 
     mySerial.println("S" + String(distance));
